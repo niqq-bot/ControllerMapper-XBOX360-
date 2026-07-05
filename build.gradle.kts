@@ -10,6 +10,7 @@ repositories {
     mavenCentral()
 }
 
+val imguiVersion = "1.92.0"
 val lwjglVersion = "3.4.1"
 
 dependencies {
@@ -22,7 +23,7 @@ dependencies {
     implementation("org.lwjgl:lwjgl-glfw")
     implementation("org.lwjgl:lwjgl-opengl")
 
-    implementation("io.github.spair:imgui-java-app:1.92.0")
+    implementation("io.github.spair:imgui-java-app:${imguiVersion}")
 
     runtimeOnly("org.lwjgl:lwjgl::natives-windows")
     runtimeOnly("org.lwjgl:lwjgl-glfw::natives-windows")
