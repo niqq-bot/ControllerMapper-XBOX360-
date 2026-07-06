@@ -1,4 +1,4 @@
-package com.controllermapper.controller;
+package example.controllermapper.controller;
 
 public class ControllerState {
 

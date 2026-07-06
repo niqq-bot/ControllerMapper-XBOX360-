@@ -37,5 +37,5 @@ java {
 }
 
 application {
-    mainClass.set("com.controllermapper.ControllerMapper")
+    mainClass.set("example.controllermapper.ControllerMapper")
 }

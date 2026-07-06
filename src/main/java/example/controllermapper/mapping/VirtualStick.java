@@ -1,4 +1,4 @@
-package com.controllermapper.mapping;
+package example.controllermapper.mapping;
 
 public class VirtualStick {
 

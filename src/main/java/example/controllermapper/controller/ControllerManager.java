@@ -1,4 +1,4 @@
-package com.controllermapper.controller;
+package example.controllermapper.controller;
 
 import de.gurkenlabs.input4j.InputDevice;
 import de.gurkenlabs.input4j.InputDevicePlugin;
@@ -7,17 +7,25 @@ import de.gurkenlabs.input4j.InputDevices;
 public class ControllerManager {
 
     private final InputDevicePlugin plugin;
-    private final InputDevice controller;
+    private InputDevice controller;
 
-    public ControllerManager(){
-        plugin= InputDevices.init();
+    public ControllerManager() {
 
-        if(plugin.getAll().isEmpty()){
-            throw new RuntimeException("No controller connected. ");
+        plugin = InputDevices.init();
+
+        connectController();
+    }
+
+    private void connectController() {
+
+        if (plugin.getAll().isEmpty()) {
+            controller = null;
+            return;
         }
 
-        controller=plugin.getAll().iterator().next();
-        System.out.println("Connected: "+controller.getName());
+        controller = plugin.getAll().iterator().next();
+
+        System.out.println("Connected: " + controller.getName());
     }
 
     public InputDevice getController(){
@@ -29,6 +37,11 @@ public class ControllerManager {
     }
 
     public ControllerState poll() {
+
+
+        if (!hasController()) {
+            return new ControllerState();
+        }
 
         controller.poll();
 
@@ -71,5 +84,15 @@ public class ControllerManager {
         }
 
         return state;
+    }
+
+    public boolean hasController() {
+
+        if (controller != null)
+            return true;
+
+        connectController();
+
+        return controller != null;
     }
 }

@@ -1,4 +1,4 @@
-package com.controllermapper.ui;
+package example.controllermapper.ui;
 
 public class ImGuiWindow {
 

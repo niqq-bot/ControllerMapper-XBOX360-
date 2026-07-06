@@ -1,6 +1,6 @@
-package com.controllermapper;
+package example.controllermapper;
 
-import com.controllermapper.ui.ControllerApplication;
+import example.controllermapper.ui.ControllerApplication;
 
 public class ControllerMapper {
 
